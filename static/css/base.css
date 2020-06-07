@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+
+}
+
+.navigation-bar .nav-display{
+    background-color: cadetblue;
+    padding: 15px;
+    margin: 2px;
+    
+}
+.nav-bar{
+    background-color: cadetblue; 
+}
+
+.background-sect{
+    background-image: url('../photos/site1.jpeg');
+    height: 70vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #464646;
+    position: relative;
+    padding: 20px;
+}
+
+.project-card{
+    margin-top: 15px;
+}
+
+

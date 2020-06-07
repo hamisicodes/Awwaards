@@ -1,12 +1,16 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest,HttpResponse,HttpResponseRedirect
+from .forms import UserRegistrationForm
+from .models  import  Profile
+from  django.contrib import messages
+from django.contrib.auth.models import User
 
 
 # Create your views here.
 
 def register(request):
     if request.method == 'POST':
-        user_form = UserRegistratinForm(request.POST)
+        user_form = UserRegistrationForm(request.POST)
         
         if user_form.is_valid():
             # create a new user object but avoid saving it yet
@@ -25,6 +29,9 @@ def register(request):
 
 
     else:
-        user_form = UserRegistratinForm()
+        user_form = UserRegistrationForm()
 
         return render(request,'account/register.html' , {'user_form':user_form})
+
+def dashboard(request):
+    return render(request,'base.html')

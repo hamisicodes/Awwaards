@@ -2,7 +2,7 @@ from django import forms
 from.models import Profile
 from django.contrib.auth.models import User
 
-class UserRegistratinForm(forms.ModelForm):
+class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label ='Password',
                                 widget = forms.PasswordInput)
 
