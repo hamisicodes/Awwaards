@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest,HttpResponse,HttpResponseRedirect
-from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm,
+from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm
 from .models  import  Profile
 from  django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -55,3 +56,16 @@ def edit(request):
         profile_form=ProfileEditForm(instance=request.user.profile)
 
     return render(request, 'account/edit.html', {'user_form':user_form , 'profile_form':profile_form})
+
+def profile(request):
+    profile = Profile.objects.get(user__id = request.user.id)
+
+    return render(request ,'account/profile.html' , {'profile':profile})
+
+# 
+def get_profile(request,username):
+  
+    profile = Profile.objects.get(user__username = username) 
+
+    return render(request ,'account/profile.html' , {'profile':profile})
+
