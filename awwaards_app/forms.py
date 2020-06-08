@@ -1,5 +1,5 @@
 from django import forms
-from.models import Profile
+from.models import Profile,Project
 from django.contrib.auth.models import User
 
 class UserRegistrationForm(forms.ModelForm):
@@ -30,3 +30,8 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('date_of_birth','photo','bio')
+
+class projectForm(forms.ModelForm):
+    class Meta:
+        model =Project
+        fields = ('tittle','description','image','link')
