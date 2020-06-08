@@ -35,7 +35,7 @@ class  Profile(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
-    image = models.ImageField(upload_to='projects/')
+    image = models.ImageField(upload_to='projects/', blank=True)
     author = models.ForeignKey(Profile,on_delete=models.CASCADE)
     publish_at = models.DateTimeField(auto_now_add=True)
     link = models.URLField()
