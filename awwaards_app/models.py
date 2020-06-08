@@ -56,4 +56,4 @@ class Project(models.Model):
         return projects
 
     class Meta:
-        ordering = ['publish_at']
+        ordering = ['-publish_at']
