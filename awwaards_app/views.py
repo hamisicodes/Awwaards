@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest,HttpResponse,HttpResponseRedirect
-from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm
+from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm,projectForm
 from .models  import  Profile
 from  django.contrib import messages
 from django.contrib.auth.models import User
@@ -62,10 +62,29 @@ def profile(request):
 
     return render(request ,'account/profile.html' , {'profile':profile})
 
-# 
+
 def get_profile(request,username):
   
     profile = Profile.objects.get(user__username = username) 
 
     return render(request ,'account/profile.html' , {'profile':profile})
+
+
+@login_required
+def create(request):
+    if request.method == 'POST':
+        project_form = ProjectForm(request.POST,request.FILES)
+        profile = Profile.objects.get(user__id = request.user.id)
+
+        if project_form.is_valid():
+            post = project_form.save(commit = False)
+            post.profile = profile
+            post.save()
+
+            messages.success(request ,'New Project added successfully')
+            return redirect('dashboard')
+
+    else:
+        project_form = ProjectForm()
+        return render(request,'account/post.html', {'project_form':project_form})
 
