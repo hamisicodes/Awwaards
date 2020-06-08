@@ -31,7 +31,7 @@ class ProfileEditForm(forms.ModelForm):
         model = Profile
         fields = ('date_of_birth','photo','bio')
 
-class projectForm(forms.ModelForm):
+class ProjectForm(forms.ModelForm):
     class Meta:
         model =Project
-        fields = ('tittle','description','image','link')
+        fields = ('title','description','image','link')

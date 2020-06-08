@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest,HttpResponse,HttpResponseRedirect
-from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm,projectForm
+from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm,ProjectForm
 from .models  import  Profile
 from  django.contrib import messages
 from django.contrib.auth.models import User
@@ -35,7 +35,7 @@ def register(request):
         return render(request,'account/register.html' , {'user_form':user_form})
 
 def dashboard(request):
-    return render(request,'base.html')
+    return render(request,'account/dashboard.html')
 
 @login_required
 def edit(request):
@@ -78,7 +78,7 @@ def create(request):
 
         if project_form.is_valid():
             post = project_form.save(commit = False)
-            post.profile = profile
+            post.author = profile
             post.save()
 
             messages.success(request ,'New Project added successfully')

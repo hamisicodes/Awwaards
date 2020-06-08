@@ -20,9 +20,9 @@
                     
      
                     <form  method="post" action="{% url 'create' %}" enctype="multipart/form-data">
-    
-                        {{ image_form.as_p }}
                         {% csrf_token %}
+                        {{ project_form.as_p }}
+                       
                        
                         <p><input type="submit" value="POST"></p>
                     </form>

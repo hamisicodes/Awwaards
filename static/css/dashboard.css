@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.dot {
+    height: 45px;
+    width: 55px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 50px;
+  }

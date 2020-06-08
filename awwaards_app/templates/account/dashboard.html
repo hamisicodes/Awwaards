@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}
+    {{block.super}}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    {% endblock %}
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-1" style="margin-top: 5%; margin-left: 10%;  margin-right: 10%;">
+            <div class="col mb-4" >
+                <!-- Card -->
+                <div class="card">
+    
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                            <b>Design</b> <span class="dot" style="border: 3px solid rgb(226, 43, 128);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
+                            <b>Usability</b> <span class="dot" style="border: 3px solid rgb(76, 43, 226);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
+                            <b>Content</b> <span class="dot"  style="border: 3px solid rgb(162, 226, 43);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
+                           <b>Avarage</b>  <span class="dot"  style="border: 3px solid rgb(43, 209, 187);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
+                        </a>
+                    </div>
+    
+                    <!--Card content-->
+                    <div class="card-body">
+    
+                        <!--Title-->
+                        <h4 class="card-title">Beach Guide</h4>
+                        <!--Text-->
+                        <p class="card-text">A project that guides tourists on different spots on the local beach
+                            .</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <a href="https://africanmeccasafaris.com" target="_blank"><button  class="btn aqua-gradient" >View site</button></a>
+                        <button class="btn peach-gradient">Rate</button>
+                        <button class="btn purple-gradient">Review</button>
+                        
+                        
+                    </div>
+
+                   
+
+    
+                </div>
+                <!-- Card -->
+                
+                
+                
+
+
+            </div>
+
+            
+            
+                        
+    
+        </div>
+        <!-- Card -->
+        </div>
+        </div>
+        
+    </div>
+    
+
+    {% endblock %}
+
+
+</body>
+
+{% block scripts%}
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+{% endblock %}
+
+</html>
