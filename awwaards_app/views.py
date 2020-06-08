@@ -86,5 +86,5 @@ def create(request):
 
     else:
         project_form = ProjectForm()
-        return render(request,'account/post.html', {'project_form':project_form})
+        return render(request,'account/project.html', {'project_form':project_form})
 
