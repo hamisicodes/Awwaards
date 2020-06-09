@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile,Project
+from .models import Profile,Project,Rate
 
 
 # Register your models here.
@@ -10,6 +10,10 @@ class ProfileAdmin(admin.ModelAdmin):
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display =('title','description','author','publish_at')
+
+@admin.register(Rate)
+class RateAdmin(admin.ModelAdmin):
+    list_display =('usability','design','content')
 
 
 
