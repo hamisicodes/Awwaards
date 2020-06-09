@@ -6,8 +6,9 @@ body{
 
 .dot {
     height: 45px;
-    width: 55px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     margin-right: 50px;
+    color: #fafafa;
   }

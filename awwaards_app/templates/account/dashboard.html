@@ -25,62 +25,99 @@
     {% block content %}
     <div class="container">
         <div class="row row-cols-1 row-cols-md-1" style="margin-top: 5%; margin-left: 10%;  margin-right: 10%;">
-            <div class="col mb-4" >
+            <div class="col mb-4">
                 <!-- Card -->
-                <div class="card">
-    
+                <br><br><br>
+
+                {% for project in projects %}
+                <div class="card " style="margin-top: 30px;">
+
                     <!--Card image-->
                     <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                        <img class="card-img-top" width="500" height="500" src="{{project.image.url}}"
                             alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                            <b>Design</b> <span class="dot" style="border: 3px solid rgb(226, 43, 128);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
-                            <b>Usability</b> <span class="dot" style="border: 3px solid rgb(76, 43, 226);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
-                            <b>Content</b> <span class="dot"  style="border: 3px solid rgb(162, 226, 43);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
-                           <b>Avarage</b>  <span class="dot"  style="border: 3px solid rgb(43, 209, 187);"><p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p></span>
+                        <a href="#!" style="padding: 15px;">
+                            <div class="mask rgba-white-slight" style="padding: 15px;">
+                                <b>Design</b> <span class="dot" style="border: 3px solid rgb(226, 43, 128); color:#fafafa;">
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                </span>
+                                <b>Usability</b> <span class="dot" style="border: 3px solid rgb(76, 43, 226);color:#fafafa;">
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                </span>
+                                <b>Content</b> <span class="dot" style="border: 3px solid rgb(162, 226, 43); color:#fafafa;">
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                </span>
+                                <b>Average</b> <span class="dot" style="border: 3px solid rgb(43, 209, 187);color:#fafafa;">
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                </span>
+                            </div>
+                           
                         </a>
                     </div>
-    
+
                     <!--Card content-->
                     <div class="card-body">
-    
+
                         <!--Title-->
-                        <h4 class="card-title">Beach Guide</h4>
+                        <h4 class="card-title">{{project.title}}</h4>
                         <!--Text-->
-                        <p class="card-text">A project that guides tourists on different spots on the local beach
+                        <p class="card-text">{{project.description}}
                             .</p>
                         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <a href="https://africanmeccasafaris.com" target="_blank"><button  class="btn aqua-gradient" >View site</button></a>
-                        <button class="btn peach-gradient">Rate</button>
-                        <button class="btn purple-gradient">Review</button>
+                        <a href="https://africanmeccasafaris.com" target="_blank"><button class="btn aqua-gradient" >View
+                                site</button></a>
+                        <button class="btn peach-gradient" data-toggle="modal" data-target="#project-{{project.id}}">Rate</button>
                         
-                        
+
+
                     </div>
 
-                   
-
-    
-                </div>
-                <!-- Card -->
-                
-                
-                
-
-
+                </div> <br><br><br>
+                {% endfor %}
             </div>
 
             
-            
-                        
-    
+
         </div>
-        <!-- Card -->
-        </div>
-        </div>
-        
+
     </div>
-    
+    <!-- Card -->
+    </div>
+    </div>
+
+ <!-- Modal -->
+ {% for project in projects %}
+<div class="modal fade" id="project-{{project.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{project.title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <label for="quantity">Design:</label>
+                <input type="number" id="design" name="design" min="1" max="10">
+                <label for="quantity">Usability:</label>
+                <input type="number" id="usability" name="usability" min="1" max="10">
+                <label for="quantity">Content:</label>
+                <input type="number" id="content" name="content" min="1" max="10">
+                <button type="button" class="btn btn-primary">Confirm</button>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+    </div>
+
 
     {% endblock %}
 

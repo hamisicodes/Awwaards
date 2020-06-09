@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest,HttpResponse,HttpResponseRedirect
 from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm,ProjectForm
-from .models  import  Profile
+from .models  import  Profile,Project
 from  django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -35,7 +35,9 @@ def register(request):
         return render(request,'account/register.html' , {'user_form':user_form})
 
 def dashboard(request):
-    return render(request,'account/dashboard.html')
+    projects = Project.objects.all()
+
+    return render(request,'account/dashboard.html',{'projects':projects})
 
 @login_required
 def edit(request):

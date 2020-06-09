@@ -11,6 +11,19 @@ body{
     margin: 2px;
     
 }
+
+.nav-display .nav-item{
+
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 2px;
+}
+
+.nav-display .nav-item .nav-link{
+
+    color: #fefefe;
+    font-weight: bold;
+}
 .nav-bar{
     background-color: cadetblue; 
 }
@@ -30,5 +43,6 @@ body{
 .project-card{
     margin-top: 15px;
 }
+
 
 
