@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest,HttpResponse,HttpResponseRedirect
-from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm,ProjectForm
-from .models  import  Profile,Project
+from .forms import UserRegistrationForm,UserEditForm,ProfileEditForm,ProjectForm,RateForm
+from .models  import  Profile,Project,Rate
 from  django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -36,8 +36,9 @@ def register(request):
 
 def dashboard(request):
     projects = Project.objects.all()
+    rate_form = RateForm()
 
-    return render(request,'account/dashboard.html',{'projects':projects})
+    return render(request,'account/dashboard.html',{'projects':projects , 'rate_form':rate_form})
 
 @login_required
 def edit(request):
@@ -89,4 +90,25 @@ def create(request):
     else:
         project_form = ProjectForm()
         return render(request,'account/project.html', {'project_form':project_form})
+
+def rate(request,pk):
+    project = project.objects.get(pk = pk)
+    if request.method == 'POST':
+        rate_form = RateForm(request.POST)
+        if rate_form.is_valid():
+            rate = rate_form.save(commit = False)
+            rate.user= request.user
+            rate.project = project
+            rate.save()
+    else:
+        rate_form = RateForm()
+        
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+        
+
+
+
+
+
 

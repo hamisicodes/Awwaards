@@ -98,13 +98,8 @@
         </div>
         <div class="modal-body">
             <form action="">
-                <label for="quantity">Design:</label>
-                <input type="number" id="design" name="design" min="1" max="10">
-                <label for="quantity">Usability:</label>
-                <input type="number" id="usability" name="usability" min="1" max="10">
-                <label for="quantity">Content:</label>
-                <input type="number" id="content" name="content" min="1" max="10">
-                <button type="button" class="btn btn-primary">Confirm</button>
+                {{ form.as_p }}
+                {% csrf_token %}
             </form>
 
         </div>
