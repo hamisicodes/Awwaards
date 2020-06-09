@@ -65,3 +65,6 @@ class Rate(models.Model):
     usability = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
     design = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
     content = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
+
+    def __str__(self):
+        return self.project.title

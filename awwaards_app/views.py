@@ -36,7 +36,7 @@ def register(request):
 
 def dashboard(request):
     projects = Project.objects.all()
-    rate_form = RateForm()
+
 
     return render(request,'account/dashboard.html',{'projects':projects , 'rate_form':rate_form})
 
@@ -92,7 +92,7 @@ def create(request):
         return render(request,'account/project.html', {'project_form':project_form})
 
 def rate(request,pk):
-    project = project.objects.get(pk = pk)
+    project = Project.objects.get(pk = pk)
     if request.method == 'POST':
         rate_form = RateForm(request.POST)
         if rate_form.is_valid():
@@ -104,6 +104,13 @@ def rate(request,pk):
         rate_form = RateForm()
         
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def single(request,pk):
+    project = Project.objects.get(pk = pk)
+        rate_form = RateForm()
+    return render(request,'account/project.html', {'project_form':project_form, 'project':project})
+
+
 
         
 
