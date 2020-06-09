@@ -23,18 +23,14 @@
 
 <body>
     {% block content %}
-    <div class="container">
-        <form class="form-inline md-form mr-auto mb-4" action="{% url 'searches' %}" method="GET">
-          <input class="form-control mr-sm-2" type="text" placeholder="search project" aria-label="Search" name="search"> 
-          <button class="btn btn-elegant btn-rounded btn-sm my-0" type="submit">Search</button>
-        </form>
-      </div>
+
     <div class="container">
         <div class="row row-cols-1 row-cols-md-1" style="margin-top: 5%; margin-left: 10%;  margin-right: 10%;">
             <div class="col mb-4">
                 <!-- Card -->
                 <br><br><br>
-
+                {% if projects %}
+                <b>Found {{projects|length}} projects with search term *{{searchterm}}*</b>
                 {% for project in projects %}
                 <div class="card " style="margin-top: 30px;">
 
@@ -80,6 +76,12 @@
 
                 </div> <br><br><br>
                 {% endfor %}
+                {% else %}
+                <div class="alert alert-info" role="alert">
+                    <a href="#" class="close" data-dismiss="alert">&times</a>
+                    There are no projects for the searchterm *{{searchterm}}*
+                </div>
+                {% endif %}
             </div>
 
             

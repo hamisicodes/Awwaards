@@ -16,6 +16,7 @@ urlpatterns = [
     path('create/', views.create , name='create'),
     path('rate/<int:pk>/', views.rate , name='rate'),
     path('project/<int:pk>/', views.single , name='single'),
+    path('searches/' , views.searches , name = 'searches'),
 
     
 

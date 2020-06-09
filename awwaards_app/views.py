@@ -116,7 +116,7 @@ def searches(request):
         search = request.GET['search']
         projects = Project.search_projects(search)
         searchterm = f'{search}'
-        return render(request,'account/searches.html' , {'projects':projects, 'searchterm':searchterm})
+        return render(request,'account/search.html' , {'projects':projects, 'searchterm':searchterm})
     else:
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
