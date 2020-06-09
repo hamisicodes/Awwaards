@@ -38,7 +38,7 @@ def dashboard(request):
     projects = Project.objects.all()
 
 
-    return render(request,'account/dashboard.html',{'projects':projects , 'rate_form':rate_form})
+    return render(request,'account/dashboard.html',{'projects':projects})
 
 @login_required
 def edit(request):
@@ -107,8 +107,8 @@ def rate(request,pk):
 
 def single(request,pk):
     project = Project.objects.get(pk = pk)
-        rate_form = RateForm()
-    return render(request,'account/project.html', {'project_form':project_form, 'project':project})
+    rate_form = RateForm()
+    return render(request,'account/single.html', {'rate_form':rate_form, 'project':project})
 
 
 

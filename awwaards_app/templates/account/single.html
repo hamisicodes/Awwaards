@@ -24,33 +24,20 @@
 <body>
     {% block content %}
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-1" style="margin-top: 5%; margin-left: 10%;  margin-right: 10%;">
+        <div class="row row-cols-1 row-cols-md-2">
             <div class="col mb-4">
                 <!-- Card -->
                 <br><br><br>
 
                 
-                <div class="card " style="margin-top: 30px;">
+                <div class="card ">
 
                     <!--Card image-->
                     <div class="view overlay">
                         <img class="card-img-top" width="500" height="500" src="{{project.image.url}}"
                             alt="Card image cap">
-                        <a href="#!" style="padding: 15px;">
-                            <div class="mask rgba-white-slight" style="padding: 15px;">
-                                <b>Design</b> <span class="dot" style="border: 3px solid rgb(226, 43, 128); color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
-                                </span>
-                                <b>Usability</b> <span class="dot" style="border: 3px solid rgb(76, 43, 226);color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
-                                </span>
-                                <b>Content</b> <span class="dot" style="border: 3px solid rgb(162, 226, 43); color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
-                                </span>
-                                <b>Average</b> <span class="dot" style="border: 3px solid rgb(43, 209, 187);color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
-                                </span>
-                            </div>
+                        <a href="#!">
+  
                            
                         </a>
                     </div>
@@ -66,14 +53,27 @@
                         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
                         <a href="https://africanmeccasafaris.com" target="_blank"><button class="btn aqua-gradient" >View
                                 site</button></a>
-                        <button class="btn peach-gradient" data-toggle="modal" data-target="#project-{{project.id}}">Rate</button>
+                        
                         
 
 
                     </div>
 
-                </div> <br><br><br>
+        
+
+                </div> 
+
             
+            </div>
+            <div class="col-md-6" style="margin-top: 10%;">
+                <form action="">
+                    {{ rate_form.as_p }}
+                    {% csrf_token %}
+                    <button class="btn btn-default">Rate <i class="fas fa-magic ml-1"></i></button>
+                    <b>Rate functionality under construction...</b>
+                </form>
+
+
             </div>
 
             

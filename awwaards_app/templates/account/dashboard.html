@@ -39,16 +39,16 @@
                         <a href="#!" style="padding: 15px;">
                             <div class="mask rgba-white-slight" style="padding: 15px;">
                                 <b>Design</b> <span class="dot" style="border: 3px solid rgb(226, 43, 128); color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">0</p>
                                 </span>
                                 <b>Usability</b> <span class="dot" style="border: 3px solid rgb(76, 43, 226);color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">0</p>
                                 </span>
                                 <b>Content</b> <span class="dot" style="border: 3px solid rgb(162, 226, 43); color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">0</p>
                                 </span>
                                 <b>Average</b> <span class="dot" style="border: 3px solid rgb(43, 209, 187);color:#fafafa;">
-                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">10</p>
+                                    <p style="font-size: 20px; font-weight: bolder; padding: 8px;">0</p>
                                 </span>
                             </div>
                            
@@ -64,9 +64,9 @@
                         <p class="card-text">{{project.description}}
                             .</p>
                         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <a href="https://africanmeccasafaris.com" target="_blank"><button class="btn aqua-gradient" >View
+                        <a href="https://africanmeccasafaris.com" target="_blank"><button class="btn aqua-gradient" >Live
                                 site</button></a>
-                        <button class="btn peach-gradient" data-toggle="modal" data-target="#project-{{project.id}}">Rate</button>
+                        <a href="{% url 'single' project.id %}"><button class="btn peach-gradient" data-toggle="modal" data-target="#">Project</button></a>
                         
 
 
