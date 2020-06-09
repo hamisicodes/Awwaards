@@ -62,6 +62,6 @@ class Project(models.Model):
 class Rate(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     project = models.ForeignKey(Project,on_delete=models.CASCADE, null=True)
+    usability = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
     design = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
-    design = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
-    design = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
+    content = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
