@@ -24,6 +24,12 @@
 <body>
     {% block content %}
     <div class="container">
+        <form class="form-inline md-form mr-auto mb-4">
+          <input class="form-control mr-sm-2" type="text" placeholder="search project" aria-label="Search">
+          <button class="btn btn-elegant btn-rounded btn-sm my-0" type="submit">Search</button>
+        </form>
+      </div>
+    <div class="container">
         <div class="row row-cols-1 row-cols-md-1" style="margin-top: 5%; margin-left: 10%;  margin-right: 10%;">
             <div class="col mb-4">
                 <!-- Card -->
@@ -87,6 +93,7 @@
 
  <!-- Modal -->
  {% for project in projects %}
+
 <div class="modal fade" id="project-{{project.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
