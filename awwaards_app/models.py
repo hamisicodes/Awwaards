@@ -41,6 +41,7 @@ class Project(models.Model):
     publish_at = models.DateTimeField(auto_now_add=True)
     link = models.URLField()
 
+
     def save_project(self):
         self.save()
         

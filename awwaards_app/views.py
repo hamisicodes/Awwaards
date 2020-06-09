@@ -111,6 +111,16 @@ def single(request,pk):
     return render(request,'account/single.html', {'rate_form':rate_form, 'project':project})
 
 
+def searches(request):
+    if request.GET.get('search'):
+        search = request.GET['search']
+        projects = Project.search_projects(search)
+        searchterm = f'{search}'
+        return render(request,'account/searches.html' , {'projects':projects, 'searchterm':searchterm})
+    else:
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
 
         
 
