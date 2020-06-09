@@ -57,3 +57,10 @@ class Project(models.Model):
 
     class Meta:
         ordering = ['-publish_at']
+
+class Rate(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE, null=True)
+    design = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
+    design = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
+    design = models.PositiveIntegerField(default = 0 , validators =[ MaxValueValidator(10)] )
