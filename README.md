@@ -1,6 +1,6 @@
 # Awwaards
 
-  an application like Awwards . The application will allow a user to post a project he/she has created and get it reviewed by his/her peers.
+  An application like Awwards . The application will allow a user to post a project he/she has created and get it reviewed by his/her peers.
 
 # User Stories
 As a user of the application I should be able to:
